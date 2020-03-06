@@ -10,7 +10,7 @@ $script:listener = $null
 $counter = 0
 
 If (-Not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) {
-    write-host "Du benÃ¶tigst Adminrechte um dies auszufÃ¼hren!"
+    write-host "Du benötigst Adminrechte um dies auszuführen!"
     return
 }
 
@@ -62,7 +62,7 @@ function Send-DirectoryInfo( $dir, $path) {
     if( $path ) { $path = "/" + $path }
     send-html $(
         "Directory: $dir<br><br>"
-        "Mode            Letzte Ã„nderung       GrÃ¶ÃŸe           Name<br>"
+        "Mode            Letzte Änderung       Größe           Name<br>"
         "------          -------------------   --------------  ------------------------<br>"
         if( $dir -ne $base ) { "d----- $(''.PadLeft(46))<a href='$path/..'>..</a><br>" }
         dir $dir |% { 
