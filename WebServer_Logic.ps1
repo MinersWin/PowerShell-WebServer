@@ -62,7 +62,7 @@ function Send-DirectoryInfo( $dir, $path) {
     if( $path ) { $path = "/" + $path }
     send-html $(
         "Directory: $dir<br><br>"
-        "Mode            Letzte Aenderung      Groesse         Name<br>"
+        "Mode            Letzte Änderung       Größe           Name<br>"
         "------          -------------------   --------------  ------------------------<br>"
         if( $dir -ne $base ) { "d----- $(''.PadLeft(46))<a href='$path/..'>..</a><br>" }
         dir $dir |% { 
