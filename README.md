@@ -10,7 +10,7 @@ Was wird für die Ausführung des Webservers benötigt?
 ```
 PowerShell 5.1 Core
 .Net-Framework 3.5 oder höher
-Windows System (Pfes wird noch nciht unterstüzt)
+Windows System (Pfes wird noch nicht unterstüzt)
 Adminrechte auf dem Host
 ```
 
