@@ -9,6 +9,11 @@ $global:restart = $false
 $script:listener = $null
 $counter = 0
 
+If (-Not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) {
+    write-host "Du benötigst Adminrechte um dies auszuführen!"
+    return
+}
+
 # make sure base folder is a directory
 if( !($base= (resolve-path "$($root.FullName)\" -ea 0).Path) ) {
     return write-error "Der Ordner '$root' existiert nicht"
