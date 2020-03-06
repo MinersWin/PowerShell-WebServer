@@ -30,9 +30,11 @@ wget https://github.com/MinersWin/PowerShell-WebServer/releases/download/v.1.0/W
 
 ## WebServer ausführen:
 
-Einfach WebServer.ps1 mit Adminrechten ausführen
+#### Einfach WebServer.ps1 mit ***Adminrechten*** ausführen
 
-```.\WebServer```
+```powershell
+.\WebServer.ps1
+```
 
 ## WebServer ohne GUI Nutzen
 
