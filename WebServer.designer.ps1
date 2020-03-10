@@ -9,6 +9,8 @@ $Form1 = New-Object -TypeName System.Windows.Forms.Form
 [System.Windows.Forms.Button]$Button5 = $null
 [System.Windows.Forms.TextBox]$TextBoxHTTPSPort = $null
 [System.Windows.Forms.TextBox]$TextBoxHTTPPort = $null
+[System.Windows.Forms.TextBox]$TextBoxHosts = $null
+[System.Windows.Forms.CheckBox]$CheckBoxDirectory = $null
 function InitializeComponent
 {
 $LabelMain = (New-Object -TypeName System.Windows.Forms.Label)
@@ -21,6 +23,8 @@ $ButtonBrowse = (New-Object -TypeName System.Windows.Forms.Button)
 $Button5 = (New-Object -TypeName System.Windows.Forms.Button)
 $TextBoxHTTPSPort = (New-Object -TypeName System.Windows.Forms.TextBox)
 $TextBoxHTTPPort = (New-Object -TypeName System.Windows.Forms.TextBox)
+$TextBoxHosts = (New-Object -TypeName System.Windows.Forms.TextBox)
+$CheckBoxDirectory = (New-Object -TypeName System.Windows.Forms.CheckBox)
 $Form1.SuspendLayout()
 #
 #LabelMain
@@ -35,9 +39,9 @@ $LabelMain.UseCompatibleTextRendering = $true
 #
 #ButtonStart
 #
-$ButtonStart.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]12,[System.Int32]43))
+$ButtonStart.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]473,[System.Int32]98))
 $ButtonStart.Name = [System.String]'ButtonStart'
-$ButtonStart.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]75,[System.Int32]23))
+$ButtonStart.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]108,[System.Int32]23))
 $ButtonStart.TabIndex = [System.Int32]1
 $ButtonStart.Text = [System.String]'Start'
 $ButtonStart.UseCompatibleTextRendering = $true
@@ -45,9 +49,9 @@ $ButtonStart.UseVisualStyleBackColor = $true
 #
 #ButtonRestart
 #
-$ButtonRestart.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]12,[System.Int32]72))
+$ButtonRestart.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]473,[System.Int32]127))
 $ButtonRestart.Name = [System.String]'ButtonRestart'
-$ButtonRestart.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]75,[System.Int32]23))
+$ButtonRestart.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]108,[System.Int32]23))
 $ButtonRestart.TabIndex = [System.Int32]2
 $ButtonRestart.Text = [System.String]'Restart'
 $ButtonRestart.UseCompatibleTextRendering = $true
@@ -55,9 +59,9 @@ $ButtonRestart.UseVisualStyleBackColor = $true
 #
 #ButtonStop
 #
-$ButtonStop.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]12,[System.Int32]101))
+$ButtonStop.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]473,[System.Int32]156))
 $ButtonStop.Name = [System.String]'ButtonStop'
-$ButtonStop.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]75,[System.Int32]23))
+$ButtonStop.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]108,[System.Int32]23))
 $ButtonStop.TabIndex = [System.Int32]3
 $ButtonStop.Text = [System.String]'Stop'
 $ButtonStop.UseCompatibleTextRendering = $true
@@ -65,14 +69,14 @@ $ButtonStop.UseVisualStyleBackColor = $true
 #
 #TextBoxPath
 #
-$TextBoxPath.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]93,[System.Int32]71))
+$TextBoxPath.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]12,[System.Int32]66))
 $TextBoxPath.Name = [System.String]'TextBoxPath'
-$TextBoxPath.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]407,[System.Int32]24))
+$TextBoxPath.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]453,[System.Int32]24))
 $TextBoxPath.TabIndex = [System.Int32]4
 #
 #LabelPath
 #
-$LabelPath.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]93,[System.Int32]45))
+$LabelPath.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]12,[System.Int32]40))
 $LabelPath.Name = [System.String]'LabelPath'
 $LabelPath.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]100,[System.Int32]23))
 $LabelPath.TabIndex = [System.Int32]5
@@ -81,9 +85,9 @@ $LabelPath.UseCompatibleTextRendering = $true
 #
 #ButtonBrowse
 #
-$ButtonBrowse.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]506,[System.Int32]71))
+$ButtonBrowse.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]473,[System.Int32]66))
 $ButtonBrowse.Name = [System.String]'ButtonBrowse'
-$ButtonBrowse.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]75,[System.Int32]23))
+$ButtonBrowse.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]109,[System.Int32]23))
 $ButtonBrowse.TabIndex = [System.Int32]6
 $ButtonBrowse.Text = [System.String]'Browse'
 $ButtonBrowse.UseCompatibleTextRendering = $true
@@ -91,7 +95,7 @@ $ButtonBrowse.UseVisualStyleBackColor = $true
 #
 #Button5
 #
-$Button5.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]473,[System.Int32]161))
+$Button5.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]473,[System.Int32]186))
 $Button5.Name = [System.String]'Button5'
 $Button5.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]109,[System.Int32]23))
 $Button5.TabIndex = [System.Int32]7
@@ -101,21 +105,40 @@ $Button5.UseVisualStyleBackColor = $true
 #
 #TextBoxHTTPSPort
 #
-$TextBoxHTTPSPort.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]12,[System.Int32]160))
+$TextBoxHTTPSPort.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]12,[System.Int32]186))
 $TextBoxHTTPSPort.Name = [System.String]'TextBoxHTTPSPort'
 $TextBoxHTTPSPort.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]453,[System.Int32]24))
 $TextBoxHTTPSPort.TabIndex = [System.Int32]8
 #
 #TextBoxHTTPPort
 #
-$TextBoxHTTPPort.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]12,[System.Int32]130))
+$TextBoxHTTPPort.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]12,[System.Int32]156))
 $TextBoxHTTPPort.Name = [System.String]'TextBoxHTTPPort'
 $TextBoxHTTPPort.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]453,[System.Int32]24))
 $TextBoxHTTPPort.TabIndex = [System.Int32]9
 #
+#TextBoxHosts
+#
+$TextBoxHosts.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]12,[System.Int32]126))
+$TextBoxHosts.Name = [System.String]'TextBoxHosts'
+$TextBoxHosts.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]453,[System.Int32]24))
+$TextBoxHosts.TabIndex = [System.Int32]10
+#
+#CheckBoxDirectory
+#
+$CheckBoxDirectory.Location = (New-Object -TypeName System.Drawing.Point -ArgumentList @([System.Int32]12,[System.Int32]96))
+$CheckBoxDirectory.Name = [System.String]'CheckBoxDirectory'
+$CheckBoxDirectory.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]104,[System.Int32]24))
+$CheckBoxDirectory.TabIndex = [System.Int32]11
+$CheckBoxDirectory.Text = [System.String]'Directory'
+$CheckBoxDirectory.UseCompatibleTextRendering = $true
+$CheckBoxDirectory.UseVisualStyleBackColor = $true
+#
 #Form1
 #
-$Form1.ClientSize = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]594,[System.Int32]191))
+$Form1.ClientSize = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]594,[System.Int32]221))
+$Form1.Controls.Add($CheckBoxDirectory)
+$Form1.Controls.Add($TextBoxHosts)
 $Form1.Controls.Add($TextBoxHTTPPort)
 $Form1.Controls.Add($TextBoxHTTPSPort)
 $Form1.Controls.Add($Button5)
@@ -140,5 +163,7 @@ Add-Member -InputObject $Form1 -Name ButtonBrowse -Value $ButtonBrowse -MemberTy
 Add-Member -InputObject $Form1 -Name Button5 -Value $Button5 -MemberType NoteProperty
 Add-Member -InputObject $Form1 -Name TextBoxHTTPSPort -Value $TextBoxHTTPSPort -MemberType NoteProperty
 Add-Member -InputObject $Form1 -Name TextBoxHTTPPort -Value $TextBoxHTTPPort -MemberType NoteProperty
+Add-Member -InputObject $Form1 -Name TextBoxHosts -Value $TextBoxHosts -MemberType NoteProperty
+Add-Member -InputObject $Form1 -Name CheckBoxDirectory -Value $CheckBoxDirectory -MemberType NoteProperty
 }
 . InitializeComponent
